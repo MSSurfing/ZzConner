@@ -2,7 +2,11 @@
 
 namespace Zz.Core
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
+        /// <summary>
+        /// 实体主键（Id）
+        /// </summary>
+        public Guid Id { get; set; }
     }
 }
