@@ -7,6 +7,6 @@ namespace Zz.Core
         /// <summary>
         /// 实体主键（Id）
         /// </summary>
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
     }
 }

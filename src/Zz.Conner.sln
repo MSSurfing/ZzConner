@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{88F13F5C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Api", "App\Zz.Api\Zz.Api.csproj", "{F914FD84-BFAD-4754-8FEF-0B8D52A2138C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zz.Services", "Libraries\Zz.Services\Zz.Services.csproj", "{DF494A34-77B7-406B-83D0-3A1B63544471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Services", "Libraries\Zz.Services\Zz.Services.csproj", "{DF494A34-77B7-406B-83D0-3A1B63544471}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Core", "Libraries\Zz.Core\Zz.Core.csproj", "{7DC02A81-9E4A-49FD-A693-7E045CE7EE40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zz.Http.Core", "App\Zz.Http\Zz.Http.Core.csproj", "{073CB546-7BF3-44FA-B8EA-7F5F1724DAEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Http.Core", "App\Zz.Http\Zz.Http.Core.csproj", "{073CB546-7BF3-44FA-B8EA-7F5F1724DAEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
