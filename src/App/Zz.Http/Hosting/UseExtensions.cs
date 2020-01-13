@@ -14,7 +14,7 @@ namespace Zz.Http.Core.Hosting
 {
     public static class UseExtensions
     {
-        public static void UseStaticFiles(this IApplicationBuilder application, IHostingEnvironment env)
+        public static void UseStaticFiles(this IApplicationBuilder application, IWebHostEnvironment env)
         {
             application.UseStaticFiles(new StaticFileOptions
             {

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Engine;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Zz.Http.Core.Hosting
     public static class StartupExtensions //HttpServiceCollectionExtensions
     {
         #region IApplication builder extensions
-        public static void ZzHostingConfigure(this IApplicationBuilder app, IHostingEnvironment env)
+        public static void ZzHostingConfigure(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -37,7 +38,9 @@ namespace Zz.Http.Core.Hosting
         {
             var mvcBuilder = services.AddMvc();
 
-            mvcBuilder.AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            // 需引入 Microsoft.AspNetCore.Mvc.NewtonsoftJson
+            mvcBuilder.AddNewtonsoftJson();
+            //mvcBuilder.AddJsonOptions(options => options.JsonSerializerOptions...ContractResolver = new DefaultContractResolver());
 
             mvcBuilder.AddFluentValidation(config =>
             {

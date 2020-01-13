@@ -26,15 +26,15 @@ namespace Zz.Http.Api.Controllers
         public IActionResult Token(LoginModel model)
         {
             if (model == null)
-                return ErrorMessage("无效");
+                return BadMsg("无效");
 
             var user = _userService.GetByMobilephone(model.Mobilephone);
             if (user.Deleted)
-                return ErrorMessage("无效");
+                return BadMsg("无效");
 
             var token = _zzAuthenticationService.RefreshToken(30, new ExternalUser() { Id = Guid.NewGuid() });
 
-            return SuccessMessage(new { token });
+            return OkMsg(new { token });
         }
     }
 }

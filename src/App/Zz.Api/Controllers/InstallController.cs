@@ -103,18 +103,18 @@ namespace Zz.Http.Api.Controllers
         }
         #endregion
 
-        [Route("Plugins")]
+        [Route("Plugins"), HttpGet]
         public IActionResult Plugins()
         {
-            return SuccessMessage();
+            return OkMsg();
         }
 
-        [Route("Install")]
+        [Route("Install"), HttpPost]
         public IActionResult Install(InstallModel model)
         {
             var dbSettings = DbSettingsManager.Load();
             if (dbSettings != null && !string.IsNullOrEmpty(dbSettings.DbConnectionString))
-                return SuccessMessage();
+                return OkMsg();
 
             // For Tests
             int databaseIndex = 111;
@@ -128,7 +128,7 @@ namespace Zz.Http.Api.Controllers
             model.AdminPassword = "123456";
 
             if (!ModelState.IsValid)
-                return ErrorMessage();
+                return BadMsg();
 
             if (!SqlServerExists(model.DbConnectionString))
             {
@@ -153,7 +153,7 @@ namespace Zz.Http.Api.Controllers
             // Database configuration set
             // 
 
-            return SuccessMessage();
+            return OkMsg();
         }
     }
 }

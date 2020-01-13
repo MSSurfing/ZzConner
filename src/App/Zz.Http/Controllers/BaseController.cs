@@ -6,8 +6,9 @@ using Zz.Http.Core.Mvc.Results;
 
 namespace Zz.Http.Core.Controllers
 {
+    [ApiController]
     [Diagnostics.Stopwatch]
-    public abstract class BaseController : Controller
+    public abstract class BaseController : ControllerBase
     {
         #region Json Result
         /*
@@ -29,15 +30,17 @@ namespace Zz.Http.Core.Controllers
             return new EmptyResult();
         }
 
-        protected virtual IActionResult ErrorMessage(object message = null)
+        protected virtual IActionResult BadMsg(object message = null)
         {
-            return Json(new MessageResult { Code = MessageCode.Error, Message = message });
+            return Ok(new MessageResult { Code = MessageCode.Error, Message = message });
         }
 
-        protected virtual IActionResult SuccessMessage(object Data = null)
+        protected virtual IActionResult OkMsg(object Data = null)
         {
-            return Json(new MessageResult { Code = MessageCode.Success, Data = Data });
+            return Ok(new MessageResult { Code = MessageCode.Success, Data = Data });
         }
         #endregion
     }
+
+
 }

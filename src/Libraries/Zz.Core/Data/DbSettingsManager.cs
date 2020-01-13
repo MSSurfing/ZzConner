@@ -9,13 +9,17 @@ namespace Zz.Core.Data
     public partial class DbSettingsManager
     {
         #region Fields
+#if DEBUG
+        private const string FILE_NAME = "dbSettings.Development.json";
+#else
         private const string FILE_NAME = "dbSettings.json";
+#endif
         #endregion
 
         #region Utilities
         private static string MapRootPath(string filename)
         {
-            var env = EngineContext.Resolve<IHostingEnvironment>();
+            var env = EngineContext.Resolve<IWebHostEnvironment>();
             var rootPath = env.ContentRootPath;
 
             return Path.Combine(rootPath ?? string.Empty, filename);
