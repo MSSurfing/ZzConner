@@ -7,6 +7,7 @@ using Zz.Core;
 using Zz.Core.Caching;
 using Zz.Services.Authentication;
 using Zz.Services.Authentication.OAuth;
+using Zz.Services.Grpc;
 using Zz.Services.Installers;
 using Zz.Services.Users;
 using Zz.Services.Users.External;
@@ -36,6 +37,8 @@ namespace Zz.Http.Core.Infrastructure
             builder.RegisterType<OpenAuthenticationService>().As<IOpenAuthenticationService>().InstancePerLifetimeScope();
             builder.RegisterType<ZzAuthenticationService>().As<IZzAuthenticationService>().InstancePerLifetimeScope();
             builder.RegisterType<ApplicationOAuthProvider>().As<IOAuthProvider>().InstancePerLifetimeScope();
+
+            builder.RegisterType<ServiceInfoService>().As<IServiceInfoService>().InstancePerLifetimeScope();
 
             // memory cache
             builder.RegisterType<SurfMemoryCache>().As<ICacheManager>().InstancePerLifetimeScope();

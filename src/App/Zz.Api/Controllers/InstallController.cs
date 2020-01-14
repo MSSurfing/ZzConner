@@ -118,7 +118,7 @@ namespace Zz.Http.Api.Controllers
 
             // For Tests
             int databaseIndex = 111;
-            model.DbConnectionString = $"Data Source=47.98.165.82;Initial Catalog=Surfing{databaseIndex};Persist Security Info=True;User ID=sa;Password=z;Connect Timeout=360";
+            //model.DbConnectionString = $"Data Source=47.98.165.82;Initial Catalog=Surfing{databaseIndex};Persist Security Info=True;User ID=sa;Password=z;Connect Timeout=360";
 
             //MySql 
             //model.DbConnectionString = $"Data Source=10.0.0.7;Database=Surfing{databaseIndex};User ID=zeroing;Password=123456;pooling=true;port=3306;sslmode=none;CharSet=utf8;";
