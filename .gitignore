@@ -45,8 +45,6 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
-*.Development.json
-
 *.dll
 *_i.c
 *_p.c
@@ -265,3 +263,8 @@ __pycache__/
 /src/Surfing.Net.Jinli-Projects/packages
 /src/Ly.AspectLoggers/packages
 /src/LcTrucking-v1/packages
+
+*.Development.json
+/src/Libraries/**/Properties/launchSettings.json
+/src/App/Zz.Http/**/Properties/launchSettings.json
+
