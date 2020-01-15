@@ -16,7 +16,7 @@ namespace Zz.Services.Grpc
 
         void Update(ServiceInfo entity);
 
-        #region Service method 
+        #region Service method's Methods
         Method GetMethodById(Guid Id);
 
         void DeleteMethod(Method entity);

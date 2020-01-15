@@ -9,6 +9,8 @@ using Zz.Services.Authentication;
 using Zz.Services.Authentication.OAuth;
 using Zz.Services.Grpc;
 using Zz.Services.Installers;
+using Zz.Services.Media;
+using Zz.Services.Metadata;
 using Zz.Services.Users;
 using Zz.Services.Users.External;
 
@@ -39,6 +41,9 @@ namespace Zz.Http.Core.Infrastructure
             builder.RegisterType<ApplicationOAuthProvider>().As<IOAuthProvider>().InstancePerLifetimeScope();
 
             builder.RegisterType<ServiceInfoService>().As<IServiceInfoService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<AssemblyService>().As<IAssemblyService>().InstancePerLifetimeScope();
+            builder.RegisterType<FileInfoService>().As<IFileInfoService>().InstancePerLifetimeScope();
 
             // memory cache
             builder.RegisterType<SurfMemoryCache>().As<ICacheManager>().InstancePerLifetimeScope();

@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\Libraries\Zz.Core\Zz.Core.csproj" />
     <ProjectReference Include="..\..\Libraries\Zz.Services\Zz.Services.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>

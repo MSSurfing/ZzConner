@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Zz.Core;
 using Zz.Http.Core.Mvc.Results;
 
 namespace Zz.Http.Core.Controllers
@@ -38,6 +39,18 @@ namespace Zz.Http.Core.Controllers
         protected virtual IActionResult OkMsg(object Data = null)
         {
             return Ok(new MessageResult { Code = MessageCode.Success, Data = Data });
+        }
+        #endregion
+
+        #region Extenions for paged list
+        protected virtual IActionResult OkPaged(int total, object rows)
+        {
+            return OkMsg(new { total, rows });
+        }
+
+        protected virtual IActionResult OkPaged<T>(IPagedList<T> pagedList)
+        {
+            return OkPaged(pagedList.TotalCount, pagedList);
         }
         #endregion
     }

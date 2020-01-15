@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Zz.Core.Data.Entity.Media;
 
 namespace Zz.Core.Data.Entity.Metadata
 {
@@ -9,7 +7,15 @@ namespace Zz.Core.Data.Entity.Metadata
     {
         public string Name { get; set; }
         public string Filename { get; set; }
-        public string Path { get; set; }
+        public Guid FielInfoId { get; set; }
+
+        public bool Deleted { get; set; }
+
+        //
+
+        #region Nav properties
+        public virtual FileInfo FileInfo { get; set; }
+        #endregion
         // Todo
     }
 }

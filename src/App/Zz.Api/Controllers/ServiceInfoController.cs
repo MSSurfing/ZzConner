@@ -11,7 +11,6 @@ using Zz.Services.Grpc;
 namespace Zz.Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class ServiceInfoController : BaseController
     {
         #region Fields

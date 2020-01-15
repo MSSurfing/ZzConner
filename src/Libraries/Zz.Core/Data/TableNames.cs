@@ -1,4 +1,6 @@
 ﻿using Zz.Core.Data.Entity.Grpc;
+using Zz.Core.Data.Entity.Media;
+using Zz.Core.Data.Entity.Metadata;
 
 namespace Zz.Core.Data
 {
@@ -13,5 +15,8 @@ namespace Zz.Core.Data
 
         public const string RequestModelTable = nameof(RequestModel);
         public const string ResponseModelTable = nameof(ResponseModel);
+
+        public const string FileInfoTable = nameof(FileInfo);
+        public const string AssemblyTable = nameof(Assembly);
     }
 }

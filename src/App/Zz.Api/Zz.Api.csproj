@@ -21,5 +21,9 @@
     <ProjectReference Include="..\Zz.Http\Zz.Http.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\Assemblies\" />
+  </ItemGroup>
+
 
 </Project>
