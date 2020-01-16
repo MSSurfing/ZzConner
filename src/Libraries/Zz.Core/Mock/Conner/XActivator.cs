@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.Collections;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -203,5 +204,40 @@ namespace Zz.Core.Mock.Conner
         {
             return (T)CreateInstance(typeof(T));
         }
+
+        #region Load & Unload ( use by AppDomain)
+        public virtual Assembly LoadInDomain(string dllPath, AppDomain domain = null)
+        {
+            if (!File.Exists(dllPath))
+                return null;
+
+            if (domain != null)
+            {
+                // TODO, to validate, is that doesn't work?
+                var bytes = File.ReadAllBytes(dllPath);
+                return domain.Load(bytes);
+            }
+
+            return Assembly.LoadFile(dllPath);
+
+        }
+
+        public virtual AppDomain CreateDomain(string friendlyName = null)
+        {
+            AppDomain root = AppDomain.CurrentDomain;
+
+
+            return root;
+            //AppDomainSetup setup = new AppDomainSetup();
+            //setup.ApplicationBase = root.SetupInformation.ApplicationBase + @""
+
+            //return AppDomain.CreateDomain(friendlyName ?? Guid.NewGuid().ToString());
+        }
+
+        public virtual void Unload(AppDomain domain)
+        {
+            AppDomain.Unload(domain);
+        }
+        #endregion
     }
 }

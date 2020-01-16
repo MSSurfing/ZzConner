@@ -12,6 +12,10 @@ namespace Zz.Core.Data.EntityMapping.Grpc
             builder.HasKey(u => u.Id);
 
 
+            builder.HasOne(e => e.Assembly)
+                .WithMany(e => e.ServiceInfos)
+                .HasForeignKey(k => k.AssemblyId)
+                .IsRequired();
         }
     }
 }

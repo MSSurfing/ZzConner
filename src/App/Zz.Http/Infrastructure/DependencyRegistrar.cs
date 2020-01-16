@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Engine;
 using Zz.Core;
 using Zz.Core.Caching;
+using Zz.Core.Mock;
+using Zz.Core.Mock.Conner;
 using Zz.Services.Authentication;
 using Zz.Services.Authentication.OAuth;
 using Zz.Services.Grpc;
@@ -47,6 +49,13 @@ namespace Zz.Http.Core.Infrastructure
 
             // memory cache
             builder.RegisterType<SurfMemoryCache>().As<ICacheManager>().InstancePerLifetimeScope();
+
+            // Mock & Conner
+            builder.RegisterType<XActivator>().As<IActivator>().InstancePerLifetimeScope();
+            builder.RegisterType<SurfMocker>().As<IMocker>().InstancePerLifetimeScope();
+            builder.RegisterType<XServerCall>().As<IServerCall>().InstancePerLifetimeScope();
+            builder.RegisterType<XMetadataProvider>().As<IMetadataProvider>().InstancePerLifetimeScope();
+
         }
     }
 }

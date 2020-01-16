@@ -13,7 +13,7 @@ namespace Zz.Core.Data.EntityMapping.Metadata
 
             builder.HasOne(e => e.FileInfo)
                 .WithMany()
-                .HasForeignKey(key => key.FielInfoId)
+                .HasForeignKey(key => key.FileInfoId)
                 .IsRequired();
         }
     }

@@ -18,5 +18,9 @@ namespace Zz.Services.Metadata
         void Insert(Assembly entity);
 
         void Update(Assembly entity);
+
+        #region 
+
+        #endregion
     }
 }

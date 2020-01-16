@@ -20,10 +20,10 @@ namespace Zz.Core.Data.EntityMapping.Grpc
                 .HasForeignKey(k => k.ServiceInfoId)
                 .IsRequired();
 
-            // 索引
-            builder.HasIndex(e => e.ServiceInfoId)
-                .HasName(null)
-                .IsUnique();
+            // 错误索引
+            //builder.HasIndex(e => e.ServiceInfoId)
+            //    .HasName(null)
+            //    .IsUnique();
 
             // 一对一关系（且RequestModel中不需要MethodId的属性）
             builder.HasOne(e => e.RequestModel)

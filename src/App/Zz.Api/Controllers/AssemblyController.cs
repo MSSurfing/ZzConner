@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac.Engine;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Zz.Api.Models.Assemblies;
 using Zz.Core.Data.Entity.Metadata;
+using Zz.Core.Mock;
 using Zz.Http.Core.Controllers;
+using Zz.Services.Grpc;
 using Zz.Services.Media;
 using Zz.Services.Metadata;
 
@@ -17,13 +20,16 @@ namespace Zz.Api.Controllers
     {
         #region Fields
         private readonly IAssemblyService _assemblyService;
+        private readonly IServiceInfoService _serviceInfoService;
         private readonly IFileInfoService _fileInfoService;
         #endregion
 
         #region Ctor
-        public AssemblyController(IAssemblyService assemblyService, IFileInfoService fileInfoService)
+        public AssemblyController(IAssemblyService assemblyService, IFileInfoService fileInfoService
+            , IServiceInfoService serviceInfoService)
         {
             _assemblyService = assemblyService;
+            _serviceInfoService = serviceInfoService;
             _fileInfoService = fileInfoService;
         }
         #endregion
@@ -77,6 +83,31 @@ namespace Zz.Api.Controllers
             _assemblyService.Insert(entity);
 
             //
+            return OkMsg();
+        }
+
+        [Route("Analyse"), HttpGet]
+        public IActionResult Analyse(Guid Id)
+        {
+            var assemblyInfo = _assemblyService.GetById(Id);
+            if (assemblyInfo == null)
+                return BadMsg("数据异常！");
+
+            var activator = EngineContext.Resolve<IActivator>();
+            var metadataProvider = EngineContext.Resolve<IMetadataProvider>();
+
+            var domain = activator.CreateDomain();
+
+            var assembly = activator.LoadInDomain(assemblyInfo.FileInfo.Path, domain);
+
+            var services = metadataProvider.GetServices(assembly);
+
+            foreach (var service in services)
+            {
+                service.Assembly = assemblyInfo;
+                _serviceInfoService.Insert(service);
+            }
+
             return OkMsg();
         }
     }

@@ -38,19 +38,43 @@ namespace Zz.Api.Controllers
                 Id = Guid.NewGuid(),
                 Name = "Ab",
                 AssemblyQualifiedName = "abc",
+                AssemblyId = Guid.NewGuid(),
                 Deleted = false,
             };
 
             serviceInfo.Methods.Add(new Method()
             {
+                Id = Guid.NewGuid(),
                 Name = "fdsf",
+                //ServiceInfo = serviceInfo,
                 RequestModel = new RequestModel
                 {
+                    Id = Guid.NewGuid(),
                     Name = "fdfdf",
                     AssemblyQualifiedName = "fdsfdf",
                 },
                 ResponseModel = new ResponseModel
                 {
+                    Id = Guid.NewGuid(),
+                    Name = "fsdfds",
+                    AssemblyQualifiedName = "fdf",
+                }
+            });
+
+            serviceInfo.Methods.Add(new Method()
+            {
+                Id = Guid.NewGuid(),
+                Name = "fdsf",
+                //ServiceInfo = serviceInfo,
+                RequestModel = new RequestModel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "fdfdf",
+                    AssemblyQualifiedName = "fdsfdf",
+                },
+                ResponseModel = new ResponseModel
+                {
+                    Id = Guid.NewGuid(),
                     Name = "fsdfds",
                     AssemblyQualifiedName = "fdf",
                 }

@@ -15,10 +15,10 @@ namespace Zz.Core.Data.EntityMapping.Grpc
             builder.ToTable(TableNames.PropertyTable);
             builder.HasKey(u => u.Id);
 
-            builder.HasOne(e => e.MethodInfo)
-                .WithMany()
-                .HasForeignKey(k => k.MethodId)
-                .IsRequired();
+            //builder.HasOne(e => e.MethodInfo)
+            //    .WithMany()
+            //    .HasForeignKey(k => k.MethodId)
+            //    .IsRequired();
 
             builder.HasOne(e => e.RequestModel)
                 .WithMany(p => p.Properties)

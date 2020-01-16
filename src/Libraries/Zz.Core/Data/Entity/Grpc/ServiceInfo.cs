@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Zz.Core.Data.Entity.Metadata;
 
 namespace Zz.Core.Data.Entity.Grpc
@@ -9,11 +10,13 @@ namespace Zz.Core.Data.Entity.Grpc
 
         public ServiceInfo()
         {
-            
+
         }
 
+        public Guid AssemblyId { get; set; }
+
         // 用于获取 Service所在程序集的 实体、枚举等对象
-        //public virtual Assembly Assembly { get; set; }
+        public virtual Assembly Assembly { get; set; }
 
         public bool Deleted { get; set; }
 

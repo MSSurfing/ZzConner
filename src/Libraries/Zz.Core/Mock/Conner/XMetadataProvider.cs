@@ -58,8 +58,12 @@ namespace Zz.Core.Mock.Conner
 
         protected virtual bool IgnoreMethod(MethodInfo method)
         {
-            return method.IsPublic && method.IsVirtual && method.ReturnType.IsGenericType == false
-                && method.DeclaringType.FullName != "System.Object";
+            return method.IsPublic && method.IsVirtual
+                // TODO, not supported async emthod now.
+                && method.ReturnType.IsGenericType == false
+                && method.DeclaringType.FullName != "System.Object"
+                // TODO, use other method to find the real method
+                && method.GetParameters().Where(e => e.Name.Equals("headers")).Count() == 1;
         }
 
         protected virtual DataType ToDataType(Type type)
@@ -181,10 +185,10 @@ namespace Zz.Core.Mock.Conner
             return Type.GetType(typeName);
         }
 
-        public virtual List<ServiceInfo> GetServices()
+        public virtual List<ServiceInfo> GetServices(Assembly assembly)
         {
             var typeFinder = EngineContext.Resolve<ITypeFinder>();
-            var clients = typeFinder.FindClassesOfType<ClientBase>();
+            var clients = typeFinder.FindClassesOfType<ClientBase>(new[] { assembly });
 
             var serviceList = new List<ServiceInfo>();
             return clients.Select(ToServiceModel).ToList();

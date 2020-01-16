@@ -7,7 +7,7 @@ namespace Zz.Core.Data.Entity.Grpc
     public class Property : ITypeModel
     {
         #region Properties
-        public Guid MethodId { get; set; }
+        //public Guid MethodId { get; set; }
         public Guid? RequestModelId { get; set; }
         public Guid? ResponseModelId { get; set; }
 
@@ -31,7 +31,7 @@ namespace Zz.Core.Data.Entity.Grpc
 
         #region Navigation Properties
         // 直接挂上 消息对象所在的 Method
-        public virtual Method MethodInfo { get; set; }
+        //public virtual Method MethodInfo { get; set; }
         public virtual RequestModel RequestModel { get; set; }
         public virtual ResponseModel ResponseModel { get; set; }
 
