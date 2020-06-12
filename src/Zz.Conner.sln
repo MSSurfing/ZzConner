@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Core", "Libraries\Zz.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zz.Http.Core", "App\Zz.Http\Zz.Http.Core.csproj", "{073CB546-7BF3-44FA-B8EA-7F5F1724DAEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcAssembleForTest", "Tests\GrpcAssembleForTest\GrpcAssembleForTest.csproj", "{D73C90B6-3587-44CD-98F8-6CF2A459A8BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcAssembleForTest", "Tests\GrpcAssembleForTest\GrpcAssembleForTest.csproj", "{D73C90B6-3587-44CD-98F8-6CF2A459A8BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{51149BBF-8209-4B55-ACD0-FA56192F78AA}"
 	ProjectSection(SolutionItems) = preProject
